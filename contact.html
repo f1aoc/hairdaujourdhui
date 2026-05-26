@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — L'Hair d'aujourd'hui, Salon de coiffure à L'Isle-sur-la-Sorgue</title>
+  <meta name="description" content="Contactez le salon de coiffure L'Hair d'Aujourd'hui à L'Isle-sur-la-Sorgue. Prenez rendez-vous par téléphone au 04 90 38 67 34. Centre commercial Super U, 84800 L'Isle-sur-la-Sorgue.">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --marron:       #97774a;
+      --marron-dark:  #7a5f38;
+      --marron-light: #c4a47a;
+      --beige:        #f5f0e8;
+      --beige-dark:   #ede5d5;
+      --cream:        #faf8f4;
+      --text:         #3a2e1e;
+      --text-light:   #7a6a55;
+      --white:        #ffffff;
+      --font-head:    'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Raleway', sans-serif;
+      --nav-h:        70px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--marron);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+
+    nav a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color .2s;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--marron);
+      transition: width .2s;
+    }
+    nav a:hover, nav a.active           { color: var(--marron); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--marron);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige-dark);
+      z-index: 99;
+      padding: 1.5rem;
+    }
+    .nav-drawer.open { display: block; }
+    .nav-drawer ul { flex-direction: column; gap: 0; list-style: none; }
+    .nav-drawer li { border-bottom: 1px solid var(--beige-dark); }
+    .nav-drawer a { display: block; padding: .9rem 0; font-size: .9rem; color: var(--text); }
+
+    /* ─── PAGE HERO ──────────────────────────── */
+    .page-hero { margin-top: var(--nav-h); position: relative; }
+
+    .hero-images { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .hero-images img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .hero-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(40,28,12,.42);
+    }
+
+    .hero-title h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: .25em;
+      color: var(--white);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION CONTACT ────────────────────── */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 60vh;
+    }
+
+    /* Colonne infos */
+    .contact-infos {
+      background: var(--beige);
+      padding: 4rem 3rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .contact-infos h2 {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--marron);
+      letter-spacing: .06em;
+      margin-bottom: .5rem;
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .contact-block .label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--marron-light);
+    }
+
+    .contact-block .value {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .contact-block .value strong {
+      font-weight: 600;
+    }
+
+    .contact-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--marron-light);
+    }
+
+    /* lien téléphone & facebook */
+    .cta-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--marron);
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+    .cta-tel:hover { color: var(--marron-dark); }
+
+    .cta-fb {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color .2s;
+      margin-top: .25rem;
+    }
+    .cta-fb i { color: var(--marron-light); }
+    .cta-fb:hover { color: var(--marron); }
+
+    .horaires-list {
+      list-style: none;
+      font-size: .9rem;
+      color: var(--text-light);
+    }
+    .horaires-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .2rem 0;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+    .horaires-list li:last-child { border-bottom: none; }
+    .horaires-list .jour { font-weight: 500; color: var(--text); }
+
+    /* Colonne carte */
+    .contact-map {
+      position: relative;
+      min-height: 400px;
+    }
+
+    .contact-map iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.75);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    footer ul { list-style: none; }
+    footer li { margin-bottom: .5rem; font-size: .88rem; }
+    footer a { color: rgba(255,255,255,.7); transition: color .2s; }
+    footer a:hover { color: var(--marron-light); }
+    footer i { margin-right: .4rem; color: var(--marron-light); }
+
+    .footer-center { text-align: center; font-size: .88rem; }
+    .footer-right  { text-align: right; }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      .contact-section { grid-template-columns: 1fr; }
+      .contact-map { min-height: 350px; position: relative; }
+      .contact-map iframe { position: absolute; }
+      .contact-infos { padding: 3rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+
+    @media (max-width: 680px) {
+      nav { display: none; }
+      .burger { display: flex; }
+      .logo { font-size: 1.1rem; }
+      .hero-images { grid-template-columns: 1fr; }
+      .hero-images img { height: 180px; }
+      .hero-title h1 { font-size: 1.8rem; letter-spacing: .12em; }
+      .contact-infos { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+       <a href="https://coiffure-hairdaujourdhui.fr" class="logo">L'Hair<br>d'Aujourd'hui</a>
+		  <!--<i class="fa fa-phone"></i><font size="5" color="brown"><strong>04 90 38 67 34</strong></font>-->
+
+      <nav id="mainNav">
+        <ul>
+          <!--<li><a href="index.html">Le salon</a></li>-->
+          <li><a href="produits-naturels.html">Produits naturels</a></li>
+          <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+          <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="drawer">
+    <ul>
+      <li><a href="index.html">Le salon</a></li>
+      <li><a href="produits-naturels.html">Produits naturels</a></li>
+      <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+      <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-images">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779801971/contact-coiffeur-isle-sorgue-1.jpg" alt="Salon L'Hair d'aujourd'hui">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779801972/contact-coiffeur-isle-sorgue-2.jpg" alt="Contact salon de coiffure">
+    </div>
+    <div class="hero-title">
+      <h1>Contactez-nous</h1>
+    </div>
+  </div>
+
+  <!-- SECTION CONTACT -->
+  <section class="contact-section">
+
+    <!-- INFOS -->
+    <div class="contact-infos">
+      <div>
+        <h2>Coordonnées</h2>
+        <div class="contact-divider"></div>
+      </div>
+
+      <div class="contact-block">
+        <span class="label"><i class="fa fa-map-marker"></i> &nbsp;Adresse</span>
+        <span class="value">
+          <strong>L'Hair d'Aujourd'hui</strong><br>
+          Centre commercial Super U<br>
+          84800 L'Isle-sur-la-Sorgue
+        </span>
+      </div>
+
+      <div class="contact-block">
+        <span class="label"><i class="fa fa-phone"></i> &nbsp;Téléphone</span>
+        <p style="font-size:.88rem;color:var(--text-light);margin-bottom:.5rem;">N'hésitez pas à nous appeler pour une prise de rendez-vous</p>
+        <a href="tel:+33490386734" class="cta-tel">
+          <i class="fa fa-phone"></i> 04 90 38 67 34
+        </a>
+      </div>
+
+      <div class="contact-block">
+        <span class="label"><i class="fa fa-clock-o"></i> &nbsp;Horaires</span>
+        <ul class="horaires-list">
+          <li><span class="jour">Lundi</span><span>Fermé</span></li>
+          <li><span class="jour">Mardi – Vendredi</span><span>9h – 19h</span></li>
+          <li><span class="jour">Samedi</span><span>9h – 17h</span></li>
+          <li><span class="jour">Dimanche</span><span>Fermé</span></li>
+        </ul>
+      </div>
+
+      <div class="contact-block">
+        <span class="label"><i class="fa fa-facebook"></i> &nbsp;Réseaux sociaux</span>
+        <a href="https://www.facebook.com/lhairdaujourdhui/" target="_blank" rel="noopener" class="cta-fb">
+          <i class="fa fa-facebook"></i> Suivez-nous sur Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- CARTE -->
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2399.8044490026195!2d5.062547523631445!3d43.92389266453274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ca0a0ea7ce6973%3A0x28b5910832c9892b!2sSuper+U+et+drive!5e0!3m2!1sfr!2sfr!4v1491298060192"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localisation du salon L'Hair d'Aujourd'hui">
+      </iframe>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+   <footer>
+    <div class="footer-grid">
+      <ul>
+        
+        <li>&copy; 2026 <a href="https://coiffure-hairdaujourdhui.fr"><u>coiffure-hairdaujourdhui.fr</u></a></li>
+      </ul>
+      <div class="footer-center">
+        
+        <p><i class="fa fa-map-marker"></i><a href="contact.html"><u>Contactez-nous</u></a></p>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><i class="fa fa-align-center"></i><a href="mentions.html"><u>Mentions légales</u></a></li>
+          
+        </ul>
+		
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    burger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    }));
+  </script>
+
+</body>
+</html>

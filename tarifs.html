@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prestations & Tarifs — L'Hair d'aujourd'hui, Salon de coiffure à L'Isle-sur-la-Sorgue</title>
+  <meta name="description" content="Découvrez les prestations et tarifs du salon de coiffure L'Hair d'Aujourd'hui à L'Isle-sur-la-Sorgue : coupe femme, homme, enfant, coloration végétale, spa du cheveu, coiffure mariée.">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --marron:       #97774a;
+      --marron-dark:  #7a5f38;
+      --marron-light: #c4a47a;
+      --beige:        #f5f0e8;
+      --beige-dark:   #ede5d5;
+      --cream:        #faf8f4;
+      --text:         #3a2e1e;
+      --text-light:   #7a6a55;
+      --white:        #ffffff;
+      --font-head:    'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Raleway', sans-serif;
+      --nav-h:        70px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--marron);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+.cta-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--marron);
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+
+    nav a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color .2s;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--marron);
+      transition: width .2s;
+    }
+    nav a:hover, nav a.active         { color: var(--marron); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--marron);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige-dark);
+      z-index: 99;
+      padding: 1.5rem;
+    }
+    .nav-drawer.open { display: block; }
+    .nav-drawer ul { flex-direction: column; gap: 0; list-style: none; }
+    .nav-drawer li { border-bottom: 1px solid var(--beige-dark); }
+    .nav-drawer a { display: block; padding: .9rem 0; font-size: .9rem; color: var(--text); }
+
+    /* ─── PAGE HERO ──────────────────────────── */
+    .page-hero { margin-top: var(--nav-h); position: relative; }
+
+    .hero-images { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .hero-images img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .hero-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(40,28,12,.42);
+    }
+
+    .hero-title h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: .2em;
+      color: var(--white);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION TARIFS ─────────────────────── */
+    .bg-beige { background: var(--beige); }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    /* Bloc par catégorie */
+    .tarif-bloc {
+      margin-bottom: 3rem;
+    }
+
+    .tarif-bloc-title {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: .6rem;
+      border-bottom: 2px solid var(--marron-light);
+    }
+
+    .tarif-bloc-title i {
+      font-size: 1.3rem;
+      color: var(--marron);
+    }
+
+    .tarif-bloc-title h2 {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--marron);
+      letter-spacing: .08em;
+    }
+
+    /* Lignes de tarifs */
+    .tarif-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .65rem 0;
+      border-bottom: 1px solid var(--beige-dark);
+      flex-wrap: wrap;
+    }
+
+    .tarif-row:last-child { border-bottom: none; }
+
+    .tarif-label {
+      flex: 1 1 55%;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .tarif-detail {
+      flex: 0 1 auto;
+      font-size: .82rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .tarif-price {
+      flex: 0 0 auto;
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--marron);
+      white-space: nowrap;
+    }
+
+    /* ─── BANNIÈRE MARIÉE ────────────────────── */
+    .bg-marron {
+      background: var(--marron-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .bg-marron h3 {
+      font-family: var(--font-head);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      letter-spacing: .1em;
+      margin-bottom: .75rem;
+    }
+
+    .bg-marron p {
+      font-size: .92rem;
+      color: rgba(245,240,232,.85);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .bg-marron .tel {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--marron-light);
+      letter-spacing: .12em;
+    }
+
+    /* ─── GALERIE MARIÉE ─────────────────────── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .photo-grid div { overflow: hidden; }
+
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .photo-grid div:hover img { transform: scale(1.05); }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.75);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    footer ul { list-style: none; }
+    footer li { margin-bottom: .5rem; font-size: .88rem; }
+    footer a { color: rgba(255,255,255,.7); transition: color .2s; }
+    footer a:hover { color: var(--marron-light); }
+    footer i { margin-right: .4rem; color: var(--marron-light); }
+
+    .footer-center { text-align: center; font-size: .88rem; }
+    .footer-right  { text-align: right; }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-right { text-align: center; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      nav { display: none; }
+      .burger { display: flex; }
+      .logo { font-size: 1.1rem; }
+      .hero-images { grid-template-columns: 1fr; }
+      .hero-images img { height: 180px; }
+      .hero-title h1 { font-size: 1.7rem; letter-spacing: .1em; }
+      .tarif-label { flex-basis: 100%; }
+      .tarif-detail { flex-basis: 50%; }
+    }
+
+    @media (max-width: 420px) {
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+       <a href="https://coiffure-hairdaujourdhui.fr" class="logo">L'Hair<br>d'Aujourd'hui</a>
+		  <!--<i class="fa fa-phone"></i><font size="5" color="brown"><strong>04 90 38 67 34</strong></font>-->
+
+      <nav id="mainNav">
+        <ul>
+          <!--<li><a href="index.html">Le salon</a></li>-->
+          <li><a href="produits-naturels.html">Produits naturels</a></li>
+          <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+          <li><a href="tarifs.html" class="active">Prestations &amp; tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="drawer">
+    <ul>
+      <li><a href="index.html">Le salon</a></li>
+      <li><a href="produits-naturels.html">Produits naturels</a></li>
+      <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+      <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-images">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779799665/prestations-coiffeur-isle-sorgue-1.jpg" alt="Prestations coiffure femme">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779799666/prestations-coiffeur-isle-sorgue-2.jpg" alt="Prestations coiffure homme">
+    </div>
+    <div class="hero-title">
+      <h1>Prestations &amp; Tarifs</h1>
+    </div>
+  </div>
+
+  <!-- TARIFS -->
+  <section class="bg-beige">
+    <div class="section-inner">
+
+      <!-- FEMMES -->
+      <div class="tarif-bloc">
+        <div class="tarif-bloc-title">
+          <i class="fa fa-female"></i>
+          <h2>Femmes</h2>
+        </div>
+
+        <div class="tarif-row">
+          <span class="tarif-label">Shampoing végétal + coupe</span>
+          <span class="tarif-detail">+ brushing / coiffage</span>
+          <span class="tarif-price">38€ à 50€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Shampoing végétal</span>
+          <span class="tarif-detail">+ brushing / coiffage</span>
+          <span class="tarif-price">20€ à 30€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Soin pigmentant</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">9€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Soin végétal</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">6€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Coloration d'oxydation aux huiles végétales</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">35€ à 55€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Service coloration plantes 100% végétal</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">40€ à 50€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Service coloration végétal ton/ton</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">28€ à 38€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Dose supplémentaire</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">8€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Service mèches / balayage végétal</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">Sur devis</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Service form / permanente végétale</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">40€ à 60€</span>
+        </div>
+      </div>
+
+      <!-- HOMMES -->
+      <div class="tarif-bloc">
+        <div class="tarif-bloc-title">
+          <i class="fa fa-male"></i>
+          <h2>Hommes</h2>
+        </div>
+
+        <div class="tarif-row">
+          <span class="tarif-label">Shampoing + coupe</span>
+          <span class="tarif-detail">+ coiffage</span>
+          <span class="tarif-price">20€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Shampoing</span>
+          <span class="tarif-detail">+ tondeuse</span>
+          <span class="tarif-price">13€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Taille de barbe</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">8€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Coloration végétale</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">12€</span>
+        </div>
+      </div>
+
+      <!-- ENFANTS -->
+      <div class="tarif-bloc">
+        <div class="tarif-bloc-title">
+          <i class="fa fa-child"></i>
+          <h2>Enfants</h2>
+        </div>
+
+        <div class="tarif-row">
+          <span class="tarif-label">Coupe fillette</span>
+          <span class="tarif-detail">3 à 10 ans</span>
+          <span class="tarif-price">16€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Coupe garçon</span>
+          <span class="tarif-detail">3 à 10 ans</span>
+          <span class="tarif-price">16€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Coupe bébé</span>
+          <span class="tarif-detail">moins de 3 ans</span>
+          <span class="tarif-price">8€</span>
+        </div>
+        <div class="tarif-row">
+          <span class="tarif-label">Moins de 20 ans</span>
+          <span class="tarif-detail"></span>
+          <span class="tarif-price">−20%</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BANNIÈRE MARIÉE -->
+  <section class="bg-marron">
+    <h3>Coiffure de Mariée</h3>
+    <p>Forfait essai + coiffure le jour de votre mariage<br>Plusieurs formules au choix — n'hésitez pas à nous contacter</p>
+    <div class="tel">· 04 90 38 67 34 ·</div>
+  </section>
+
+  <!-- GALERIE MARIÉE -->
+  <div class="photo-grid" aria-label="Galerie coiffure de mariée">
+    <div><img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779799916/coiffure-mariee-isle-sorgue-1.jpg" alt="Coiffure mariée 1"></div>
+    <div><img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779799916/coiffure-mariee-isle-sorgue-2.jpg" alt="Coiffure mariée 2"></div>
+    <div><img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779799917/coiffure-mariee-isle-sorgue-3.jpg" alt="Coiffure mariée 3"></div>
+    <div><img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779799917/coiffure-mariee-isle-sorgue-4.jpg" alt="Coiffure mariée 4"></div>
+  </div>
+
+  <!-- FOOTER -->
+   <footer>
+    <div class="footer-grid">
+      <ul>
+        
+        <li>&copy; 2026 <a href="https://coiffure-hairdaujourdhui.fr"><u>coiffure-hairdaujourdhui.fr</u></a></li>
+      </ul>
+      <div class="footer-center">
+        
+        <p><i class="fa fa-map-marker"></i><a href="contact.html"><u>Contactez-nous</u></a></p>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><i class="fa fa-align-center"></i><a href="mentions.html"><u>Mentions légales</u></a></li>
+          
+        </ul>
+		
+      </div>
+    </div>
+  </footer>
+  <!--<footer>
+    <div class="footer-grid">
+      <ul>
+        <li><i class="fa fa-phone"></i>04 90 38 67 34</li>
+        <li><i class="fa fa-facebook"></i><a href="https://www.facebook.com/lhairdaujourdhui/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+      <div class="footer-center">
+        <p>L'Hair d'Aujourd'hui, votre salon de coiffure à l'Isle-sur-la-Sorgue</p>
+        <p><i class="fa fa-map-marker"></i><a href="contact.html">Contactez-nous</a></p>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><i class="fa fa-align-center"></i><a href="mentions.html">Mentions légales</a></li>
+          <li>© 2025</li>
+        </ul>
+      </div>
+    </div>
+  </footer>-->
+
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    burger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    }));
+  </script>
+
+</body>
+</html>

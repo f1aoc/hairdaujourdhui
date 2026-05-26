@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produits naturels — L'Hair d'aujourd'hui, Salon de coiffure à L'Isle-sur-la-Sorgue</title>
+  <meta name="description" content="Votre coiffeur L'Hair d'Aujourd'hui à L'Isle sur la Sorgue vous propose des produits naturels et végétaux pour vos shampoings, soins du cuir chevelu, colorations…">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --marron:       #97774a;
+      --marron-dark:  #7a5f38;
+      --marron-light: #c4a47a;
+      --beige:        #f5f0e8;
+      --beige-dark:   #ede5d5;
+      --cream:        #faf8f4;
+      --text:         #3a2e1e;
+      --text-light:   #7a6a55;
+      --white:        #ffffff;
+      --font-head:    'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Raleway', sans-serif;
+      --nav-h:        70px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--marron);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+.cta-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--marron);
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color .2s;
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--marron);
+      transition: width .2s;
+    }
+
+    nav a:hover          { color: var(--marron); }
+    nav a:hover::after   { width: 100%; }
+    nav a.active         { color: var(--marron); }
+    nav a.active::after  { width: 100%; }
+
+    /* hamburger */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--marron);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige-dark);
+      z-index: 99;
+      padding: 1.5rem;
+    }
+    .nav-drawer.open { display: block; }
+    .nav-drawer ul { flex-direction: column; gap: 0; list-style: none; }
+    .nav-drawer li { border-bottom: 1px solid var(--beige-dark); }
+    .nav-drawer a { display: block; padding: .9rem 0; font-size: .9rem; color: var(--text); }
+
+    /* ─── PAGE HERO ──────────────────────────── */
+    .page-hero {
+      margin-top: var(--nav-h);
+      position: relative;
+    }
+
+    .hero-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-images img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(40,28,12,.42);
+    }
+
+    .hero-title h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: .25em;
+      color: var(--white);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTIONS COMMUNES ──────────────────── */
+    .bg-beige  { background: var(--beige); }
+    .bg-marron { background: var(--marron-dark); }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    /* ─── COLONNES ───────────────────────────── */
+    .col h3 {
+      <!--font-family: var(--font-head);-->
+	  font-family: 'MonteCarlo', cursive;
+      font-size: 2.6rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 1.25rem;
+      letter-spacing: .04em;
+      line-height: 1.3;
+    }
+
+    .bg-beige .col h3  { color: var(--marron); }
+    .bg-marron .col h3 { color: var(--beige); }
+
+    .col img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      margin-bottom: 1.25rem;
+    }
+
+    .col img.cadre-clair {
+      border: 4px solid var(--white);
+      outline: 1px solid var(--marron-light);
+    }
+
+    .col img.cadre-sombre {
+      border: 4px solid var(--marron-light);
+      outline: 1px solid var(--beige-dark);
+    }
+
+    .col p {
+      font-size: .93rem;
+      text-align: justify;
+    }
+
+    .bg-beige  .col p { color: var(--text-light); }
+    .bg-marron .col p { color: rgba(245,240,232,.85); }
+
+    .bandeau {
+      display: block;
+      text-align: center;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+    .bg-marron .bandeau { color: var(--marron-light); }
+    .bg-beige  .bandeau { color: var(--marron-light); }
+
+    /* ─── IMAGE À CHEVAL ─────────────────────── */
+    .plateau-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .plateau-wrap img {
+      max-width: 320px;
+      width: 60%;
+      filter: drop-shadow(0 4px 20px rgba(0,0,0,.25));
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.75);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    footer ul { list-style: none; }
+    footer li { margin-bottom: .5rem; font-size: .88rem; }
+    footer a { color: rgba(255,255,255,.7); transition: color .2s; }
+    footer a:hover { color: var(--marron-light); }
+    footer i { margin-right: .4rem; color: var(--marron-light); }
+
+    .footer-center { text-align: center; font-size: .88rem; }
+    .footer-right  { text-align: right; }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      .two-col      { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid  { grid-template-columns: 1fr; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+
+    @media (max-width: 680px) {
+      nav    { display: none; }
+      .burger { display: flex; }
+      .logo  { font-size: 1.1rem; }
+      .hero-images { grid-template-columns: 1fr; }
+      .hero-images img { height: 200px; }
+      .hero-title h1 { font-size: 2rem; letter-spacing: .15em; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+       <a href="https://coiffure-hairdaujourdhui.fr" class="logo">L'Hair<br>d'Aujourd'hui</a>
+		  <!--<i class="fa fa-phone"></i><font size="5" color="brown"><strong>04 90 38 67 34</strong></font>-->
+
+      <nav id="mainNav">
+        <ul>
+          <!--<li><a href="index.html">Le salon</a></li>-->
+          <li><a href="produits-naturels.html" class="active">Produits naturels</a></li>
+          <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+          <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="drawer">
+    <ul>
+      <li><a href="index.html">Le salon</a></li>
+      <li><a href="produits-naturels.html">Produits naturels</a></li>
+      <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+      <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-images">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800628/produits-naturels-coiffeur-isle-sorgue-1.jpg" alt="Produits naturels de coiffure">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800629/produits-naturels-coiffeur-isle-sorgue-2.jpg" alt="Produits végétaux coiffure">
+    </div>
+    <div class="hero-title">
+      <h1>Produits Naturels</h1>
+    </div>
+  </div>
+
+  <!-- SECTION BEIGE : produits & service forme -->
+  <section class="bg-beige">
+    <div class="section-inner">
+      <div class="two-col">
+
+        <div class="col">
+          <h3>Produits naturels</h3>
+          <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800755/produits-naturels-coiffeur-isle-sorgue-n1.png" alt="Gamme Végétalement Provence" class="cadre-clair">
+          <p>Votre salon de coiffure L'Hair d'aujourd'hui utilise toute une gamme de produits naturels « Végétalement Provence » afin d'apporter respect et qualité à vos cheveux. Nous vous proposons tout une gamme de produits naturels : shampoing et soins hydratants, nourrissants, antioxydants et purifiants. Nous vous proposons également une gamme de coiffants (gels, cires, pommades…) toujours dans le respect de vos cheveux et de la Nature.</p>
+        </div>
+
+        <div class="col">
+          <h3>Service forme</h3>
+          <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800755/produits-naturels-coiffeur-isle-sorgue-n2.png" alt="Service forme permanente" class="cadre-clair">
+          <p>Pour une chevelure plus souple, des boucles soyeuses, notre équipe vous propose la nouvelle génération de permanentes.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MARRON : colorations -->
+  <section class="bg-marron">
+    <div class="section-inner">
+
+      <div class="plateau-wrap">
+        <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779801241/plateau.png" alt="Produits de coloration végétale">
+      </div>
+
+      <div class="two-col">
+
+        <div class="col">
+          <h3>Coloration plantes<br>100% naturelles</h3>
+          <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800756/produits-naturels-coiffeur-isle-sorgue-n3.png" alt="Coloration végétale à base de plantes" class="cadre-sombre">
+          <p>Votre coiffeur l'Hair d'aujourd'hui vous propose des colorations végétales à base de plantes. Ce procédé, en plus d'être 100 % naturel, apporte un réel soin en renforçant la fibre du cheveu. Plusieurs coloris de pigment au choix pour un rendu naturel et brillant.</p>
+          <span class="bandeau"><i class="fa fa-leaf"></i></span>
+        </div>
+
+        <div class="col">
+          <h3>Coloration<br>Huiles végétales</h3>
+          <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800757/produits-naturels-coiffeur-isle-sorgue-n4.png" alt="Coloration aux huiles végétales essentielles" class="cadre-sombre">
+          <p>Nous vous proposons toute une gamme de couleurs pour votre coloration. Coloration végétale aux huiles essentielles naturelles. La coloration aux huiles naturelles apporte un réel bienfait pour le cheveu, le respect du cuir chevelu, une durée dans le temps et une brillance incomparable.</p>
+          <span class="bandeau"><i class="fa fa-tint"></i></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <ul>
+        
+        <li>&copy; 2026 <a href="https://coiffure-hairdaujourdhui.fr"><u>coiffure-hairdaujourdhui.fr</u></a></li>
+      </ul>
+      <div class="footer-center">
+        
+        <p><i class="fa fa-map-marker"></i><a href="contact.html"><u>Contactez-nous</u></a></p>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><i class="fa fa-align-center"></i><a href="mentions.html"><u>Mentions légales</u></a></li>
+          
+        </ul>
+		
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    burger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    }));
+  </script>
+
+</body>
+</html>

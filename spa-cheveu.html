@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spa du cheveu — L'Hair d'aujourd'hui, Salon de coiffure à L'Isle-sur-la-Sorgue</title>
+  <meta name="description" content="Votre coiffeur L'Hair d'Aujourd'hui à L'Isle sur la Sorgue vous propose des modelages énergétiques et revitalisants pour votre cheveu et votre cuir chevelu. Spa du cheveu, bains et soins 4 éléments.">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --marron:       #97774a;
+      --marron-dark:  #7a5f38;
+      --marron-light: #c4a47a;
+      --beige:        #f5f0e8;
+      --beige-dark:   #ede5d5;
+      --cream:        #faf8f4;
+      --text:         #3a2e1e;
+      --text-light:   #7a6a55;
+      --white:        #ffffff;
+      --font-head:    'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Raleway', sans-serif;
+      --nav-h:        70px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--marron);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+.cta-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--marron);
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color .2s;
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--marron);
+      transition: width .2s;
+    }
+
+    nav a:hover, nav a.active         { color: var(--marron); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+
+    /* hamburger */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--marron);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige-dark);
+      z-index: 99;
+      padding: 1.5rem;
+    }
+    .nav-drawer.open { display: block; }
+    .nav-drawer ul { flex-direction: column; gap: 0; list-style: none; }
+    .nav-drawer li { border-bottom: 1px solid var(--beige-dark); }
+    .nav-drawer a { display: block; padding: .9rem 0; font-size: .9rem; color: var(--text); }
+
+    /* ─── PAGE HERO ──────────────────────────── */
+    .page-hero {
+      margin-top: var(--nav-h);
+      position: relative;
+    }
+
+    .hero-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-images img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(40,28,12,.42);
+    }
+
+    .hero-title h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: .25em;
+      color: var(--white);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION BEIGE ──────────────────────── */
+    .bg-beige { background: var(--beige); }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .col h3 {
+      <!--font-family: var(--font-head);-->
+	  font-family: 'MonteCarlo', cursive;
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--marron);
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: .04em;
+    }
+
+    .col .subtitle {
+      display: block;
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--marron-light);
+      margin-bottom: 1rem;
+    }
+
+    .col p {
+      font-size: .93rem;
+      color: var(--text-light);
+      text-align: justify;
+      margin-bottom: .75rem;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--marron-light);
+      border: none;
+      margin: 1.5rem 0;
+    }
+
+    .bandeau {
+      display: block;
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--marron-light);
+      margin-top: .5rem;
+    }
+
+    /* ─── PASTILLES 4 ÉLÉMENTS ───────────────── */
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .element-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(196,164,122,.35);
+      border-radius: 4px;
+      padding: 1.75rem 1rem;
+      text-align: center;
+      color: var(--beige);
+    }
+
+    .element-card .icon {
+      font-size: 2rem;
+      margin-bottom: .75rem;
+      color: var(--marron-light);
+    }
+
+    .element-card h4 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+      letter-spacing: .08em;
+    }
+
+    .element-card p {
+      font-size: .82rem;
+      color: rgba(245,240,232,.75);
+      line-height: 1.6;
+    }
+
+    /* ─── SECTION MARRON ─────────────────────── */
+    .bg-marron {
+      background: var(--marron-dark);
+      padding: 4rem 1.5rem;
+    }
+
+    .marron-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .marron-inner h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--beige);
+      text-align: center;
+      letter-spacing: .1em;
+      margin-bottom: 2.5rem;
+    }
+
+    .plateau-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .plateau-wrap img {
+      max-width: 480px;
+      width: 80%;
+      filter: drop-shadow(0 6px 24px rgba(0,0,0,.3));
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.75);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    footer ul { list-style: none; }
+    footer li { margin-bottom: .5rem; font-size: .88rem; }
+    footer a { color: rgba(255,255,255,.7); transition: color .2s; }
+    footer a:hover { color: var(--marron-light); }
+    footer i { margin-right: .4rem; color: var(--marron-light); }
+
+    .footer-center { text-align: center; font-size: .88rem; }
+    .footer-right  { text-align: right; }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      .two-col         { grid-template-columns: 1fr; gap: 2.5rem; }
+      .elements-grid   { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid     { grid-template-columns: 1fr; text-align: center; }
+      .footer-right    { text-align: center; }
+    }
+
+    @media (max-width: 680px) {
+      nav     { display: none; }
+      .burger { display: flex; }
+      .logo   { font-size: 1.1rem; }
+      .hero-images { grid-template-columns: 1fr; }
+      .hero-images img { height: 200px; }
+      .hero-title h1 { font-size: 2rem; letter-spacing: .12em; }
+    }
+
+    @media (max-width: 480px) {
+      .elements-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+       <a href="https://coiffure-hairdaujourdhui.fr" class="logo">L'Hair<br>d'Aujourd'hui</a>
+          
+		  <!--<i class="fa fa-phone"></i><font size="5" color="brown"><strong>04 90 38 67 34</strong></font>-->
+
+      <nav id="mainNav">
+        <ul>
+          <!--<li><a href="index.html">Le salon</a></li>-->
+          <li><a href="produits-naturels.html">Produits naturels</a></li>
+          <li><a href="spa-cheveu.html" class="active">Spa du cheveu</a></li>
+          <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="drawer">
+    <ul>
+      <li><a href="index.html">Le salon</a></li>
+      <li><a href="produits-naturels.html">Produits naturels</a></li>
+      <li><a href="spa-cheveu.html">Spa du cheveu</a></li>
+      <li><a href="tarifs.html">Prestations &amp; tarifs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-images">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800294/spa-cheveu-coiffeur-isle-sorgue-1.jpg" alt="Spa du cheveu L'Isle-sur-la-Sorgue">
+      <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800294/spa-cheveu-coiffeur-isle-sorgue-2.jpg" alt="Soins cheveu et cuir chevelu">
+    </div>
+    <div class="hero-title">
+      <h1>Spa du Cheveu</h1>
+    </div>
+  </div>
+
+  <!-- SECTION BEIGE : soins & 4 éléments -->
+  <section class="bg-beige">
+    <div class="section-inner">
+      <div class="two-col">
+
+        <div class="col">
+          <h3>Les soins Spa du cheveu</h3>
+          <p>Votre coiffeur L'Hair d'Aujourd'hui vous propose des modelages énergétiques et revitalisants pour votre cheveu et votre cuir chevelu.</p>
+          <p>L'action a pour but de détendre le cou, apaiser les maux de tête — effet anti-stress garanti.</p>
+          <p>Le SPA du cheveu est une action détente, bien-être et reposante.</p>
+          <hr class="divider">
+          <span class="bandeau"><i class="fa fa-leaf"></i></span>
+        </div>
+
+        <div class="col">
+          <h3>Bains et soins 4 éléments</h3>
+          <span class="subtitle">Aréa &nbsp;·&nbsp; Aqua &nbsp;·&nbsp; Fuego &nbsp;·&nbsp; Terra</span>
+          <p>En fonction du cuir chevelu et du cheveu, notre équipe vous proposera des produits en adéquation avec leur besoin selon les bénéfices des 4 éléments.</p>
+          <hr class="divider">
+          <span class="bandeau"><i class="fa fa-tint"></i></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MARRON : image 4 éléments + cartes -->
+  <section class="bg-marron">
+    <div class="marron-inner">
+
+      <h2>Les 4 éléments pour votre cheveu</h2>
+
+      <div class="plateau-wrap">
+        <img src="https://res.cloudinary.com/ddpeetkek/image/upload/v1779800293/4-elements-spa-cheveu-isle.png" alt="Les 4 éléments — Spa du cheveu">
+      </div>
+
+      <div class="elements-grid">
+        <div class="element-card">
+          <div class="icon"><i class="fa fa-wind"></i>🌿</div>
+          <h4>Aréa</h4>
+          <p>Soin aérien, légèreté et volume pour les cheveux fins.</p>
+        </div>
+        <div class="element-card">
+          <div class="icon">💧</div>
+          <h4>Aqua</h4>
+          <p>Hydratation profonde, souplesse et brillance retrouvées.</p>
+        </div>
+        <div class="element-card">
+          <div class="icon">🔥</div>
+          <h4>Fuego</h4>
+          <p>Énergie et vitalité, pour redonner force à la fibre capillaire.</p>
+        </div>
+        <div class="element-card">
+          <div class="icon">🌱</div>
+          <h4>Terra</h4>
+          <p>Ancrage et nourriture, pour les cheveux secs et fragilisés.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+   <footer>
+    <div class="footer-grid">
+      <ul>
+        
+        <li>&copy; 2026 <a href="https://coiffure-hairdaujourdhui.fr"><u>coiffure-hairdaujourdhui.fr</u></a></li>
+      </ul>
+      <div class="footer-center">
+        
+        <p><i class="fa fa-map-marker"></i><a href="contact.html"><u>Contactez-nous</u></a></p>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><i class="fa fa-align-center"></i><a href="mentions.html"><u>Mentions légales</u></a></li>
+          
+        </ul>
+		
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    burger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    }));
+  </script>
+
+</body>
+</html>
