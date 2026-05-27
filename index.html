@@ -462,7 +462,6 @@ h3 {
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
-
   <!-- CAROUSEL -->
   <section class="carousel-section" aria-label="Diaporama">
     <div class="slide pict-1 active">
@@ -609,6 +608,151 @@ h3 {
 
     startAuto();
   </script>
+<!-- Bouton téléphone Premium Luxe -->
+<a href="tel:+33490386734" class="luxury-call-btn">
+    <span class="phone-icon">✆</span>
+    <span class="btn-text">
+        <small>Réservation</small>
+        <strong>04 90 38 67 34</strong>
+    </span>
+</a>
 
+<style>
+/* BOUTON LUXE */
+.luxury-call-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 22px;
+    background:linear-gradient(135deg,#111,#2b2b2b);
+    color:#fff;
+    text-decoration:none;
+    border-radius:60px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.08);
+    z-index:99999;
+    overflow:hidden;
+    transition:all .35s ease;
+    border:1px solid rgba(212,163,115,0.35);
+    backdrop-filter:blur(8px);
+    font-family:'Poppins',sans-serif;
+}
+
+/* Effet lumineux premium */
+.luxury-call-btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:80%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.18),
+        transparent
+    );
+    transition:all .7s ease;
+}
+
+.luxury-call-btn:hover::before{
+    left:140%;
+}
+
+/* Hover */
+.luxury-call-btn:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.45),
+        0 0 20px rgba(212,163,115,0.25);
+    border-color:#d4a373;
+}
+
+/* Icône */
+.phone-icon{
+    width:52px;
+    height:52px;
+    min-width:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#d4a373,#e6c08b);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#111;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.4),
+        0 4px 10px rgba(0,0,0,0.25);
+    animation:pulse 2.8s infinite;
+}
+
+/* Texte */
+.btn-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+}
+
+.btn-text small{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#d4a373;
+    opacity:.9;
+}
+
+.btn-text strong{
+    font-size:18px;
+    font-weight:600;
+    color:#fff;
+}
+
+/* Animation subtile */
+@keyframes pulse{
+    0%{
+        box-shadow:
+            0 0 0 0 rgba(212,163,115,0.45);
+    }
+    70%{
+        box-shadow:
+            0 0 0 14px rgba(212,163,115,0);
+    }
+    100%{
+        box-shadow:
+            0 0 0 0 rgba(212,163,115,0);
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .luxury-call-btn{
+        left:15px;
+        right:15px;
+        bottom:15px;
+        justify-content:center;
+        padding:14px 18px;
+        border-radius:18px;
+    }
+
+    .phone-icon{
+        width:48px;
+        height:48px;
+        font-size:22px;
+    }
+
+    .btn-text strong{
+        font-size:17px;
+    }
+}
+</style>
+
+<!-- Police Premium -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </body>
 </html>
